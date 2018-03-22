@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import chunk from './array/chunk';
 import compress from './array/compress';
 import diff from './array/diff';
