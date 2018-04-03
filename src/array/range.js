@@ -5,7 +5,7 @@
  * @details Retuns the values of an array
  * between the start and end arguments
  *
- * pick([1,2,3,4,5,6,7,8,9], 4, 9)
+ * range([1,2,3,4,5,6,7,8,9], 4, 9)
  * => [5,6,7,8,9]
  *
  * @param  {Array} arr
