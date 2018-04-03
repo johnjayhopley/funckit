@@ -4,6 +4,9 @@
  * @details Checks if the passed in argument
  * is type of Object
  *
+ * isObject({});
+ * => true
+ *
  * @param  {Any} value
  * @return {Boolean}
  */

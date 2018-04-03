@@ -1,5 +1,5 @@
 {
-  "name": "deezle",
+  "name": "funckit",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -9,7 +9,7 @@
     "build:dev": "webpack --env.dev",
     "dev": "webpack-dev-server --env.dev"
   },
-  "author": "",
+  "author": "John Hopley <john.hopley@readingroom.com>",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.24.1",

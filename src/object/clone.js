@@ -4,6 +4,9 @@
  * @dependency {object.isObject}
  * @details Returns clone of immutable object
  *
+ * clone({name: 'John Hopley'})
+ * => {name: 'John Hopley'}
+ *
  * @param  {Object} obj
  * @return {Object}
  */

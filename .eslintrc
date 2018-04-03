@@ -12,7 +12,7 @@
     "no-new": "off",
     "no-underscore-dangle": "off",
     "linebreak-style": 0,
-     "max-lines": [
+    "max-lines": [
       "error",
       {
         "max": 100,
