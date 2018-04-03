@@ -1,8 +1,8 @@
 /**
- * @brief Collection hasOne
+ * @brief Collection hasMany
  * @author John Hopley <jhopley@readingroom.com>
  * @details Joins entries from one collection to
- * another using a primary and foreign key to
+ * multiple others using a primary and foreign key to
  * identifiy the relationship
  *
  *  const people = [
@@ -21,7 +21,15 @@
  *    }
  *  ];
  *
- *  hasOne(people, addresses, 'id', 'person_id', 'address')
+ *  const info = [
+ *    {
+ *      id: 1,
+ *      person_id: 2,
+ *      bio: 'Steff loves his ginger locks.'
+ *    }
+ *  ];
+ *
+ *  hasMany(people, 'id', 'person_id', addresses, info)
  *  => [{
  *    id: 2,
  *    name: 'steff',
@@ -30,16 +38,23 @@
  *      id: 1,
  *      person_id: 2,
  *      postcode: 'l12pa'
+ *    },
+ *    info: {
+ *      id: 1,
+ *      person_id: 2,
+ *      bio: 'Steff loves his ginger locks.'
  *    }
  *  }]
  *
  * @param  {Collection} collection
- * @param  {Collection} Join
  * @param  {String} primaryKey
  * @param  {String} foreignKey
+ * @param. {...Collection} collections
  * @return {Collection}
  */
-const hasOne = (collection, join, primaryKey, foreignKey, key = 'hasOne') => {
+import hasMany from './hasMany';
+
+const hasMany = (collection, primaryKey, foreignKey, collections) => {
   if (!Array.isArray(collection) || !Array.isArray(join)) {
     throw new Error(
       `HasOne expects agurment one and two to be
@@ -57,23 +72,17 @@ const hasOne = (collection, join, primaryKey, foreignKey, key = 'hasOne') => {
     );
   }
 
-  const cltn = collection;
+  let cltn = collection;
 
-  collection.forEach((item, index) => {
-    const id = item[primaryKey];
+  Object.keys(collections).forEach((prop) => {
+    if(!Array.isArray(collections[prop])) {
+      throw new Error(
+        'All collection are expected to a collections ([{},..])',
+      );
+    }
 
-    cltn[index][key] = join.filter((tvalue) => {
-      let macth = false;
-      Object.keys(tvalue).forEach((prop) => {
-        if (prop === foreignKey && tvalue[prop] === id) {
-          macth = true;
-        }
-      });
-      return macth;
-    })[0];
+    cltn = hasOne(cltn, collections[prop], primaryKey, foreignKey, prop)
   });
 
   return cltn;
 };
-
-export default hasOne;

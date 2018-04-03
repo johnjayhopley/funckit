@@ -10,10 +10,9 @@
  * @param  {Array} arr
  * @return {Array}
  */
-
 import first from './first';
 
-export default (...arrays) => {
+const intersection = (...arrays) => {
   arrays.forEach((arr, i) => {
     if (!Array.isArray(arr)) {
       throw new Error(
@@ -25,3 +24,5 @@ export default (...arrays) => {
   return first(arrays).filter(val =>
     arrays.slice(1).every(arr => arr.includes(val)));
 };
+
+export default intersection;
