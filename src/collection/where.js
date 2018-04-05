@@ -1,26 +1,48 @@
 /**
  * @brief Collection where
  * @author John Hopley <jhopley@readingroom.com>
- * @details !!!This needs amending to
- * take an object as the second paramater
+ * @details Takes in a collection returns only the
+ * items that watch the conditions (object:param2)
+ * let people = [
+ *   {
+ *     name: 'John Hopley',
+ *     jobcode: 12,
+ *     office: 'Liverpool'
+ *   },
+ *   {
+ *     name: 'Lee Easeman',
+ *     jobcode: 12,
+ *     office: 'London'
+ *   },
+ *   {
+ *     name: 'Eric Jones',
+ *     jobcode: 14,
+ *     office: 'Liverpool'
+ *   }
+ * ];
+ *
+ * where(people, {jobcode: 14, office: 'Liverpool'})
+ * => [{
+ *   name: 'Eric Jones',
+ *   jobcode: 14,
+ *   office: 'Liverpool'
+ * }]
  *
  * @param  {Collection} collection
- * @param  {String} property
- * @param  {String|Int} property
+ * @param  {Object} condition
  * @return {Collection}
  */
 const where = (collection, condition) => {
-  const conditionLen = Object.keys(condition).length;
+  const conditionCount = Object.keys(condition).length;
 
   return collection.filter((value) => {
-    if(intersection(Object.keys(condition), Object.keys(value)).length === conditionLen) {
-      let isMatch = false;
-      for(const item of Object.entries(condition)) {
-        isMatch = (value[item[0]] === item[1]) ? true : false;
-      }
-      return isMatch;
+    const intersec = intersection(Object.keys(condition), Object.keys(value))
+    if(intersec.length === conditionCount) {
+      let values = {};
+
+      intersec.forEach((prop) => Object.assign(values, { [prop]: value[prop] }));
+      return JSON.stringify(values) === JSON.stringify(condition);
     }
+    return false;
   })
 };
-
-export default where;
