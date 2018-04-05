@@ -10,7 +10,6 @@
  * @param  {Number} size
  * @return {Array}
  */
-
 const chunk = (arr, size) => {
   if (!Array.isArray(arr)) {
     throw new Error('Chunk expects argument one to be type of array.');

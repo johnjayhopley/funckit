@@ -17,7 +17,7 @@
  *       postcode: 'xxxx'
  *     }
  *   }
- *  })
+ * })
  *
  *  => {
  *   name: 'John',

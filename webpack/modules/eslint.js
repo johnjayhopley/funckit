@@ -1,8 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-console.log('----------------------------------------');
-console.log(path.join(__dirname, '../../src'))
-console.log('----------------------------------------');
 
 module.exports = (production) => {
   return {
