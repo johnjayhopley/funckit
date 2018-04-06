@@ -1,6 +1,6 @@
 # README #
 
-FuncKit is a granular ES6 library for indervidual functional methods. This allows you to include the methods nessesary for your project with out including a wide unnesseary rage of library attachments.
+FuncKit is a granular ES6 library for individual functional methods. This allows you to include the methods nessesary for your project with out including a wide unnecessary rage of library attachments.
 
 ### NPM Installation ###
 
@@ -18,12 +18,11 @@ import chunk from 'funckit\array\chunk';
 
 ### Array:Chunk ###
 
-Splits array into chunks using the specifed size.
+Splits array into chunks using the specified size.
 
 Usage:
 ```js
-chunks([1,2,3,4,5,6,7,8,9, 10], 3)
-
+chunk([1,2,3,4,5,6,7,8,9, 10], 3)
 ```
 Output:
 ```js
@@ -38,7 +37,7 @@ Usage:
 ```js
 compact(1,false, undefined,null,2)
 ```
-Output
+Output:
 ```js
 => [1,2]
 ```
@@ -58,7 +57,7 @@ Output:
 
 ### Array:Diff ###
 
-Retuns the diffrence between two arrays
+Retuns the difference between two arrays
 
 Usage:
 ```js
@@ -74,7 +73,7 @@ Returns the first value of passed array
 
 Usage:
 ```js
-diff([1,2,3,4])
+first([1,2,3,4])
 ```
 Output:
 ```js
@@ -113,7 +112,7 @@ Retuns the last value of the passed in array
 
 Usage:
 ```js
-Flatten([1,2,3,4,5])
+last([1,2,3,4,5])
 ```
 Output"
 ```js
@@ -122,7 +121,7 @@ Output"
 
 ### Array:Merge ###
 
-Meges all values from all passed in array arugments in to the onw array
+Merges all values from all passed in array arugments in to the onw array
 
 Usage:
 ```js
@@ -161,7 +160,7 @@ Output:
 
 ### Array:Range ###
 
-Retuns the values of an array  between the start and end arguments
+Returns the values of an array  between the start and end arguments
 
 Usage:
 ```js
@@ -214,7 +213,7 @@ Output:
 
 ### Collection:HasMany ###
 
-Joins entries from one collection to multiple others using a primary and foreign key to identifiy the relationship
+Joins entries from one collection to multiple others using a primary and foreign key to identify the relationship
 
 Usage:
 ```js
@@ -265,7 +264,7 @@ Output:
 
 ### Collection:HasOne ###
 
-Joins entries from one collection to another using a primary and foreign key to identifiy the relationship
+Joins entries from one collection to another using a primary and foreign key to identify the relationship
 
 Usage:
 ```js
@@ -364,7 +363,7 @@ Output:
 
 ### Number:Between ###
 
-Returns a random number between the min and max given in aurguments
+Returns a random number between the min and max given in arguments
 
 Usage:
 ```js
@@ -379,7 +378,7 @@ Output:
 
 Returns true is the passed argument is type of number
 
-Usgage
+Usage:
 ```js
 isNumber(5)
 isNumber('5')
@@ -388,7 +387,7 @@ Output:
 ```js
 => true
 => false
-``
+```
 
 ### Object: Deep Assign ###
 
@@ -475,23 +474,25 @@ Output:
 
 ### Object: types ###
 
-Retuns an object describing the property types of passed object
+Returns an object describing the property types of passed object
 
 Usage:
 ```js
-objectFlatten({
-  name: 'John Hopley',
-  address: {
-    postcode: 'xxxx',
-    city: 'Liverpool'
-  }
-});
+types({
+  doSomething: () => {},
+  doNothing: false,
+  count: 5,
+  trigger: 'click',
+  meta: {}
+})
 ```
 Output:
 ```js
 => {
-  '/name': 'John Hopley',
-  '/address/postcode': 'xxxx',
-  '/address/city': 'Liverpool',
+  doSomething: 'function'
+  doNothing: 'boolean',
+  count: 'number',
+  trigger: 'string',
+  meta: 'object'
 }
 ```
