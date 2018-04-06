@@ -1,6 +1,6 @@
 # README #
 
-FuncKit is a granular ES6 library for indervidual functional methods. This allows you to include the methods nessesary for your project with out including a wide unnesseary rage of library attachments.
+FuncKit is a granular ES6 library for individual functional methods. This allows you to include the methods nessesary for your project with out including a wide unnecessary rage of library attachments.
 
 ### NPM Installation ###
 
@@ -388,7 +388,7 @@ Output:
 ```js
 => true
 => false
-``
+```
 
 ### Object: Deep Assign ###
 
@@ -479,19 +479,21 @@ Retuns an object describing the property types of passed object
 
 Usage:
 ```js
-objectFlatten({
-  name: 'John Hopley',
-  address: {
-    postcode: 'xxxx',
-    city: 'Liverpool'
-  }
-});
+types({
+  doSomething: () => {},
+  doNothing: false,
+  count: 5,
+  trigger: 'click',
+  meta: {}
+})
 ```
 Output:
 ```js
 => {
-  '/name': 'John Hopley',
-  '/address/postcode': 'xxxx',
-  '/address/city': 'Liverpool',
+  doSomething: 'function'
+  doNothing: 'boolean',
+  count: 'number',
+  trigger: 'string',
+  meta: 'object'
 }
 ```
