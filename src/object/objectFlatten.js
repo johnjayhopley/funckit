@@ -26,15 +26,13 @@ const objectFlatten = (obj) => {
       ...Object.keys(piece).map((key) => {
         return typeof piece[key] === 'object' ?
           _ftn(piece[key], `${dir}/${key}`) : {
-            [`${dir}/${key}`]: piece[key]
-          }
-      })
-    )
-  }
+            [`${dir}/${key}`]: piece[key],
+          };
+      }),
+    );
+  };
 
   return Object.assign({}, ..._ftn(obj));
 };
 
 export default objectFlatten;
-
-

@@ -32,17 +32,21 @@
  * @param  {Object} condition
  * @return {Collection}
  */
+import intersection from '../array/intersection';
+
 const where = (collection, condition) => {
   const conditionCount = Object.keys(condition).length;
 
   return collection.filter((value) => {
-    const intersec = intersection(Object.keys(condition), Object.keys(value))
-    if(intersec.length === conditionCount) {
-      let values = {};
+    const intersec = intersection(Object.keys(condition), Object.keys(value));
+    if (intersec.length === conditionCount) {
+      const values = {};
 
-      intersec.forEach((prop) => Object.assign(values, { [prop]: value[prop] }));
+      intersec.forEach(prop => Object.assign(values, { [prop]: value[prop] }));
       return JSON.stringify(values) === JSON.stringify(condition);
     }
     return false;
-  })
+  });
 };
+
+export default where;

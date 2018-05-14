@@ -1,0 +1,45 @@
+<html>
+<head>
+
+<script type="text/javascript">
+
+const on = (selector, eventTypes, callback) => {
+  if (typeof selector !== 'string') {
+    throw new Error(
+      `Funckit on method requires aurgument one to be a 
+       valid string selector `,
+    );
+  } 
+
+  this.elements = document.querySelectorAll(selector);
+  
+  if(!Array.isArray(eventTypes)) {
+    eventTypes = [eventTypes];
+  }
+
+  this.elements.forEach((element) => {
+    eventTypes.forEach((eventType) => {
+      element.addEventListener(eventType, (event) => {
+        callback(event);
+      });
+    });
+  });
+};
+
+window.onload = function() {
+  on('.btn, .btn2', ['mouseover', 'click'], (event) => {
+    console.log('hello world');
+  });
+};
+
+</script>
+
+</head>
+<body>
+
+  <button class="btn">Button</button>
+  <button class="btn">Button 2</button>
+  <button class="btn2">Button 3</button>
+
+</body>
+</html>

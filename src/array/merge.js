@@ -16,4 +16,3 @@ const merge = (...args) => (
 );
 
 export default merge;
-

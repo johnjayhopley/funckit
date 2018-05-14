@@ -8,7 +8,7 @@
     "padded-blocks": [0, "never"],
     "space-before-function-paren": ["error", "never"],
     "import/prefer-default-export": "off",
-    function-paren-newline: ["error", "consistent"],
+    "function-paren-newline": ["error", "consistent"],
     "no-new": "off",
     "no-underscore-dangle": "off",
     "linebreak-style": 0,
