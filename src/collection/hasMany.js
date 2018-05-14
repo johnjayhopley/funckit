@@ -52,10 +52,10 @@
  * @param. {...Collection} collections
  * @return {Collection}
  */
-import hasMany from './hasMany';
+import hasOne from './hasOne';
 
 const hasMany = (collection, primaryKey, foreignKey, collections) => {
-  if (!Array.isArray(collection) || !Array.isArray(join)) {
+  if (!Array.isArray(collection)) {
     throw new Error(
       `HasOne expects agurment one and two to be
        type of Array (collection)`,
@@ -75,14 +75,16 @@ const hasMany = (collection, primaryKey, foreignKey, collections) => {
   let cltn = collection;
 
   Object.keys(collections).forEach((prop) => {
-    if(!Array.isArray(collections[prop])) {
+    if (!Array.isArray(collections[prop])) {
       throw new Error(
         'All collection are expected to a collections ([{},..])',
       );
     }
 
-    cltn = hasOne(cltn, collections[prop], primaryKey, foreignKey, prop)
+    cltn = hasOne(cltn, collections[prop], primaryKey, foreignKey, prop);
   });
 
   return cltn;
 };
+
+export default hasMany;

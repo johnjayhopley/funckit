@@ -10,8 +10,6 @@
  * @param  {Array} arr
  * @return {Array}
  */
-const compact = (arr) => {
-  return arr.filter(x => !!x)
-}
+const compact = arr => arr.filter(x => !!x);
 
 export default compact;

@@ -25,10 +25,8 @@
  * @param  {String} property
  * @return {Collection}
  */
-const pluck = (collection, property) => {
-  return collection.map(value => value[property]);
-}
+const pluck = (collection, property) => (
+  collection.map(value => value[property])
+);
 
 export default pluck;
-
-
