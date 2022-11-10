@@ -31,7 +31,7 @@
     "path": "^0.12.7",
     "prettier-eslint-webpack-plugin": "^0.14.73",
     "prettier-webpack-plugin": "^0.2.2",
-    "webpack": "^2.6.1",
+    "webpack": "^5.75.0",
     "webpack-cleanup-plugin": "^0.5.1",
     "webpack-dev-server": "^3.1.11",
     "webpack-notifier": "^1.5.0",
